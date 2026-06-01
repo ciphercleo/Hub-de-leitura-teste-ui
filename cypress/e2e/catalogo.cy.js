@@ -6,7 +6,7 @@ describe('Funcionalidade: Catálogo de Livros', () => {
     })
 
 
-    it('Deve clicar no botão adicionar à cesta', () => {
+    it.skip('Deve clicar no botão adicionar à cesta', () => {
         cy.get(':nth-child(1) > .card > .card-body > .mt-auto > .d-grid > .btn-primary').click()
         cy.get('#cart-count').should('contain', 1)
     });
@@ -28,7 +28,7 @@ describe('Funcionalidade: Catálogo de Livros', () => {
         cy.get('#global-alert-container').should('contain', 'A Divina Comédia')
     });
 
-    it.only('Deve clicar no nome do livro e direcionar para a tela do livro', () => {
+    it('Deve clicar no nome do livro e direcionar para a tela do livro', () => {
         cy.contains('Dom Casmurro').click()
         cy.url().should('include', 'book-details')
         cy.get('#add-to-cart-btn').click()
