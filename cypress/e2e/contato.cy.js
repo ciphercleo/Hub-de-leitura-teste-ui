@@ -8,7 +8,7 @@ beforeEach(() => {
 });
 
   it('Deve preencher formulário de contato com sucesso', () => {
-    cy.get('[name="name"]').type('Cleo Menegasso')
+    cy.get('[name="name"]').type('Cleo')
     cy.get('[name="email"]').type('cleo@teste.com')
     cy.get('[name="subject"]').select('Sugestões')
     cy.get('[name="message"]').type('Texto livre')
@@ -28,7 +28,7 @@ beforeEach(() => {
   });
 
   it("Deve validar mensagem de erro ao enviar sem preencher e-mail" , () => {
-    cy.get('[name="name"]').type('Cleo Menegasso')
+    cy.get('[name="name"]').type('Cleo')
     cy.get('[name="email"]').clear()
     cy.get('[name="subject"]').select('Sugestões')
     cy.get('[name="message"]').type('Texto livre')
@@ -38,7 +38,7 @@ beforeEach(() => {
   });
 
   it("Deve validar mensagem de erro ao enviar sem selecionar assunto" , () => {
-    cy.get('[name="name"]').type('Cleo Menegasso')
+    cy.get('[name="name"]').type('Cleo')
     cy.get('[name="email"]').type('cleo@teste.com')
     //cy.get('[name="subject"]').select('Sugestões')
     cy.get('[name="message"]').type('Texto livre')
@@ -49,7 +49,7 @@ beforeEach(() => {
   });
 
   it("Deve validar mensagem de erro ao enviar sem preencher a mensagem" , () => {
-    cy.get('[name="name"]').type('Cleo Menegasso')
+    cy.get('[name="name"]').type('Cleo')
     cy.get('[name="email"]').type('cleo@teste.com')
     cy.get('[name="subject"]').select('Sugestões')
     cy.get('[name="message"]').clear()
