@@ -8,6 +8,10 @@ describe('Funcionalidade: Cadastro no hub de leitura', () => {
         cadastroPage.visitarPaginaCadastro()
     });
 
+    afterEach(() => {
+        cy.screenshot()
+    });
+
     it('Deve fazer cadastro com sucesso, usando função JS', () => {
         let email = `teste${Date.now()}@teste.com`
         cy.get('#name').type('Nome teste')
@@ -17,7 +21,6 @@ describe('Funcionalidade: Cadastro no hub de leitura', () => {
         cy.get('#confirm-password').type('Teste@123')
         cy.get('#terms-agreement').check()
         cy.get('#register-btn').click()
-        //Resultado esperado
         cy.url().should('include', 'dashboard')
     });
 
@@ -26,12 +29,11 @@ describe('Funcionalidade: Cadastro no hub de leitura', () => {
         let email = faker.internet.email()
         cy.get('#name').type(nome)
         cy.get('#email').type(email)
-        cy.get('#phone').type(' 11956789485')
+        cy.get('#phone').type('11956789485')
         cy.get('#password').type('Teste@123')
         cy.get('#confirm-password').type('Teste@123')
         cy.get('#terms-agreement').check()
         cy.get('#register-btn').click()
-        //Resultado esperado
         cy.url().should('include', 'dashboard')
         cy.get('#user-name').should('contain', nome)
     });
@@ -59,9 +61,10 @@ describe('Funcionalidade: Cadastro no hub de leitura', () => {
         cadastroPage.preencherCadastro('', 'cleo@teste.com', '1183983289943', 'senha123', 'senha123')
         cy.get(':nth-child(1) > .invalid-feedback').should('contain', 'Nome deve ter pelo menos 2 caracteres')
     });
-    it.only('Deve validar mensagem ao tentar cadastrar sem preencher nome', () => {
+
+    // Mudei o nome deste teste aqui:
+    it('Deve validar mensagem ao tentar cadastrar sem preencher e-mail', () => {
         cadastroPage.preencherCadastro('Cleo', '', '1183983289943', 'senha123', 'senha123')
         cy.get('#register-form > :nth-child(2) > .invalid-feedback').should('contain', 'Email válido é obrigatório')
     });
 });
-

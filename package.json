@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run --browser chrome",
+    "cy:report": "npx cypress run --browser chrome --record --key 458c076f-c317-4f9d-87d1-7fb17f4de828"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,7 @@
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/ciphercleo/Hub-de-leitura-teste-ui/issues"
+  "url": "https://github.com/ciphercleo/Hub-de-leitura-teste-ui/issues"
   },
   "homepage": "https://github.com/ciphercleo/Hub-de-leitura-teste-ui#readme",
   "dependencies": {
